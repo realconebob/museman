@@ -1,0 +1,8 @@
+The app needs to, at the bare minimum:
+    [DONE] Find/Declare a/several root music dir(s)
+    []     Scan for known music formats in said root folders (although this could also just be generic/not care about files specifically being "music")
+    []     Populate a local database with the paths to said files
+    []     Create "playlist" tables of selected songs in said database
+    []     Create folders with the names of said playlists in the music root
+    []     Soft/hard-link (or whatever OS equivalent for non-linux) each file into the respective folders
+
