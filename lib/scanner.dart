@@ -100,13 +100,13 @@ class LinuxFScanner extends GenericFScanner implements FileScanner {
     // TODO: Implement this
     throw UnimplementedError();
 
-    //   HashSet<String> res = HashSet<String>();
+  //     HashSet<String> res = HashSet<String>();
 
-    //   for(String cur in paths) {
-    //     if(cur is not sane) {res.add(cur);}
-    //   }
+  //     for(String cur in paths) {
+  //       if(cur is not sane) {res.add(cur);}
+  //     }
 
-    // return (res.isEmpty) ? null : res;
+  //   return (res.isEmpty) ? null : res;
   }
 
   @override
