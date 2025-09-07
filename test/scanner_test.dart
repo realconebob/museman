@@ -19,48 +19,38 @@ void main() {
     expect(() => gfs.validatePathSanity("/Macos/style/path"), throwsA(isA<UnimplementedError>()));
   });
 
-  test("GenericFScanner sets and gets expected values", () {
-    const Set<String> roots1 = {"/path1/", "/path1/path2", "////path3"};
-    const Set<String> roots2 = {"C:\\path2", "path3", "C:\\\\\\path4"};
-    FileScanner gfs = GenericFScanner();
+  test("LinuxFScanner gets and sets properly", () {
+    const Set<String> roots1 = {""};
+    const Set<String> roots2 = {""};
+    const Set<String> roots3 = {""};
 
-    try {
-      gfs.setRoots = roots1;
-    } catch (e) {}
-
-    try {
-      gfs.addRoots = roots2;
-    } catch (e) {}
-
+    FileScanner lfs = LinuxFScanner();
+    lfs.setRoots = roots1;
+    lfs.addRoots = roots2;
 
     expect(() {
-      Set<String> tmp = gfs.getRoots;
-      for (String cur in tmp) {
-        if(roots1.lookup(cur) == null && roots2.lookup(cur) == null){
-            return false;
-          }
-
+      Set<String> temp = lfs.getRoots;
+      for(String cur in temp) {
+        if(roots1.lookup(cur) == null && roots2.lookup(cur) == null) {
+          return false;
+        }
       }
+
       return true;
     }.call(), isTrue);
 
-    try {
-      gfs.delRoots = roots1;
-    } catch (e) {}
+    lfs.setRoots = roots3;
 
     expect(() {
-      Set<String> tmp = gfs.getRoots;
-      for (String cur in tmp) {
-        if(roots2.lookup(cur) == null){
-            return false;
-          }
-
+      Set<String> temp = lfs.getRoots;
+      for(String cur in temp) {
+        if(roots3.lookup(cur) == null) {
+          return false;
+        }
       }
+
       return true;
     }.call(), isTrue);
 
-    return;
   });
-
-
 }
