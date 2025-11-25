@@ -1,9 +1,11 @@
 import 'dart:collection';
 
+import 'package:museman/interfaces/exportable_interface.dart';
+import 'package:museman/interfaces/exporter_interface.dart';
 import 'package:museman/interfaces/playlist_interface.dart';
 import 'package:museman/interfaces/song_interface.dart';
 
-class StandardPlaylist implements IPlaylist {
+class StandardPlaylist implements IPlaylist, IExportable {
   @override
   set addSong(ISong song) {
     // TODO: implement addSong
@@ -57,6 +59,11 @@ class StandardPlaylist implements IPlaylist {
   @override
   set setSongs(List<ISong> songs) {
     // TODO: implement setSongs
+  }
+
+  @override
+  void accept(IExporter exporter) {
+    // TODO: implement accept
   }
 
 }

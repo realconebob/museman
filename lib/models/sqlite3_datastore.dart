@@ -1,10 +1,12 @@
 import 'dart:collection';
 
 import 'package:museman/interfaces/datastore_interface.dart';
+import 'package:museman/interfaces/exportable_interface.dart';
+import 'package:museman/interfaces/exporter_interface.dart';
 import 'package:museman/interfaces/playlist_interface.dart';
 import 'package:museman/interfaces/song_interface.dart';
 
-class Sqlite3Datastore implements IDatastore {
+class Sqlite3Datastore implements IDatastore, IExportable {
   @override
   set addPlaylist(IPlaylist playlist) {
     // TODO: implement addPlaylist
@@ -77,6 +79,11 @@ class Sqlite3Datastore implements IDatastore {
   @override
   set setSongs(List<ISong> songs) {
     // TODO: implement setSongs
+  }
+
+  @override
+  void accept(IExporter exporter) {
+    // TODO: implement accept
   }
 
 }
